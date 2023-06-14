@@ -1,7 +1,7 @@
 import argparse
 import json
 import yaml
-
+import xml.etree.ElementTree as ET
 def parse_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file', help='Ścieżka do pliku wejściowego')
@@ -38,3 +38,12 @@ def write_yaml_file(data, file_path):
     with open(file_path, 'w') as file:
         yaml.dump(data, file)
     print("Dane zapisane do pliku YAML.")
+
+def read_xml_file(file_path):
+    try:
+        tree = ET.parse(file_path)
+        root = tree.getroot()
+        return root
+    except ET.ParseError as e:
+        print(f"Błąd parsowania pliku XML: {e}")
+        return None
