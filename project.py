@@ -19,7 +19,7 @@ def read_json_file(file_path):
             print(f"Błąd dekodowania pliku JSON: {e}")
             return None
 
-json_data = read_json_file(input_file)
-if json_data:
-    print("Dane z pliku JSON:")
-    print(json_data)
+def write_json_file(data, file_path):
+    with open(file_path, 'w') as file:
+        json.dump(data, file, indent=4)
+    print("Dane zapisane do pliku JSON.")
