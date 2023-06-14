@@ -33,3 +33,8 @@ def read_yaml_file(file_path):
         except yaml.YAMLError as e:
             print(f"Błąd parsowania pliku YAML: {e}")
             return None
+
+def write_yaml_file(data, file_path):
+    with open(file_path, 'w') as file:
+        yaml.dump(data, file)
+    print("Dane zapisane do pliku YAML.")
